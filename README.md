@@ -28,6 +28,18 @@ Probabilistic frost-risk forecasting pipeline for California specialty crop regi
 
 ---
 
+### NFL Sports Analytics (Swish Analytics Portfolio)
+
+| Project | Description |
+|---------|-------------|
+| [nfl-win-probability](nfl-win-probability/) | In-game win probability model from play-by-play data (XGBoost, Brier score, calibration) |
+| [nfl-spread-total-model](nfl-spread-total-model/) | Pre-game spread/total prediction, Vegas comparison, value identification |
+| [sports-betting-risk-toolkit](sports-betting-risk-toolkit/) | Kelly Criterion, Monte Carlo bankroll simulation, exposure tracking |
+| [nfl-data-pipeline](nfl-data-pipeline/) | SQL schema, ETL, analytical queries for NFL data |
+| [nfl-clv-analysis](nfl-clv-analysis/) | Closing Line Value (CLV) and line movement analysis |
+
+---
+
 ## Getting Started
 
 Each project has its own README with setup instructions. Clone this repo and navigate into the project folder you're interested in.
