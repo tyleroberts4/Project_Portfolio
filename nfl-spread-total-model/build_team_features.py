@@ -10,10 +10,20 @@ import pandas as pd
 
 def rolling_efficiency(games: pd.DataFrame, window: int = 5) -> pd.DataFrame:
     """Compute rolling points scored and allowed per game for each team."""
-    teams = pd.concat([
-        games.assign(team=games["home_team"], pts_for=games["home_score"], pts_against=games["away_score"]),
-        games.assign(team=games["away_team"], pts_for=games["away_score"], pts_against=games["home_score"]),
-    ]).sort_values(["team", "season", "week"])
+    teams = pd.concat(
+        [
+            games.assign(
+                team=games["home_team"],
+                pts_for=games["home_score"],
+                pts_against=games["away_score"],
+            ),
+            games.assign(
+                team=games["away_team"],
+                pts_for=games["away_score"],
+                pts_against=games["home_score"],
+            ),
+        ]
+    ).sort_values(["team", "season", "week"])
 
     teams["off_ppg_roll"] = teams.groupby("team")["pts_for"].transform(
         lambda x: x.shift(1).rolling(window, min_periods=1).mean()
@@ -67,7 +77,8 @@ def main():
 
     results_path = data_dir / "game_results.csv"
     if not results_path.exists():
-        from load_schedules import load_schedules, get_game_results
+        from load_schedules import get_game_results, load_schedules
+
         sched = load_schedules([2022, 2023])
         results = get_game_results(sched)
         results.to_csv(results_path, index=False)
