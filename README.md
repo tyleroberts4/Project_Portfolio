@@ -28,7 +28,7 @@ Probabilistic frost-risk forecasting pipeline for California specialty crop regi
 
 ---
 
-### NFL Sports Analytics (Swish Analytics Portfolio)
+### NFL Sports Analytics 
 
 | Project | Description |
 |---------|-------------|
